@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<base target="_blank">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>The Lab Management Workflow Revolution</title>
+<style>
+:root{--ink:#1f2937;--mute:#6b7280;--line:#e5e7eb;--accent:#b45309;--link:#0f4c81;}
+*{box-sizing:border-box}
+body{font-family:-apple-system,'Helvetica Neue',Helvetica,Arial,sans-serif;color:var(--ink);
+ line-height:1.75;max-width:720px;margin:0 auto;padding:56px 24px 100px;background:#fff;font-size:17px}
+h1{font-size:33px;margin:0 0 12px;letter-spacing:-.015em;line-height:1.2}
+.dek{font-size:18.5px;color:#374151;margin:0 0 10px;line-height:1.5}
+.byline{color:var(--mute);font-size:14px;margin:0}
+hr{border:none;border-top:1px solid var(--line);margin:30px 0}
+h2{font-size:22px;margin:46px 0 6px;letter-spacing:-.01em}
+p{margin:17px 0}
+a{color:var(--link)}
+a:hover{text-decoration:underline}
+strong,b{font-weight:600}
+code{background:#f3f4f6;padding:1px 5px;border-radius:4px;font-size:.88em}
+ul{margin:17px 0;padding-left:24px}
+li{margin:9px 0}
+blockquote{margin:32px 0;padding:4px 0 4px 22px;border-left:3px solid var(--accent);
+ font-size:21px;line-height:1.5;color:#374151;font-style:italic}
+.foot{margin-top:60px;padding-top:18px;border-top:1px solid var(--line);color:var(--mute);font-size:14px}
+</style>
+</head>
+<body>
+
+<h1>The Lab Management Workflow Revolution</h1>
+<p class="dek">How our lab could become <em>agent-native</em> — and why Atlas, our first AI agent, is only the beginning.</p>
+<p class="byline">Yubo Huang &middot; June 2026 &middot; for Prof. Cheng &amp; Dr. Zhang</p>
+
+<hr>
+
+<p>Every lab runs on a layer of small, manual chores, and ours is no exception.
+Someone keeps the website from going stale. Someone schedules the weekly meeting
+and chases the no-shows. Someone collects the journal-club papers and slides, and
+someone decides who presents next. Someone tracks where the equipment is, and
+someone fields the daily "which GPU is free?" question. None of this is hard.
+None of it is interesting. And that is exactly the problem: it is mindless work,
+it never ends, and nobody really wants to own it.</p>
+
+<p>I think we can do better. I want to propose that we make our lab
+<strong>agent-native</strong> — that we hand these chores, one by one, to AI
+agents we simply talk to in plain English. Not someday; starting now. We already
+have the first one running.</p>
+
+<h2>The chores nobody wants to do</h2>
+
+<p>Take our equipment inventory. It lives in a shared Google Sheet that we all
+edit by hand, and it is fragile in every way a spreadsheet is fragile. One stray
+edit deletes a row, with no history to roll back to. Everything is crammed into a
+single tab, so finding "where is the stopwatch?" means scrolling and Ctrl-F. And
+every update is a manual chore.</p>
+
+<p>The inventory is not special — it is just the clearest example. The same story
+repeats across the lab: the website that drifts out of date, the meeting times
+negotiated over a dozen messages, the papers scattered between Drive and chat
+with no shared memory, the server details that live only in people's heads. Five
+chores, one pattern: fragile, hard to search, and entirely manual. Worse, the
+busywork quietly wears down our communication and collaboration — because nobody
+enjoys being the person who has to do it.</p>
+
+<h2>What "agent-native" means</h2>
+
+<p>Agent-native means the default way to get something done is to
+<em>have a conversation</em>. You do not open a spreadsheet or edit a template;
+you tell an agent what you need, in plain English, in a Slack channel. Three
+things change once that becomes the norm:</p>
+
+<ul>
+<li><strong>Plain English replaces forms and files.</strong> If you can chat, you can run lab operations — no onboarding, no training.</li>
+<li><strong>Maintenance trends toward zero.</strong> The agent does the upkeep; whatever is left is light enough for anyone to do.</li>
+<li><strong>Humans and agents grow together.</strong> Every interaction adds to the lab's shared memory, so the agents become more useful the more we use them.</li>
+</ul>
+
+<p>That last point is the one I find most exciting. A spreadsheet is exactly as
+useful on day 500 as on day 1. An agent that records everything it does — and
+everything we tell it — keeps getting better.</p>
+
+<h2>We already have proof: Atlas</h2>
+
+<p>This is not hypothetical. I have built the first agent, and it is running
+today. Its name is Atlas, and it manages our equipment inventory.</p>
+
+<p>Atlas is a Slack agent powered by a self-hosted language model — Qwen3-14B,
+running locally on Machine 41 — so nothing we tell it ever leaves the lab. Every
+change it makes is recorded as a single git commit, which means the entire
+history is an audit log and any mistake can be undone with one command. The
+fragile Google Sheet, where a careless edit could quietly erase a row forever, is
+gone.</p>
+
+<p>And you really do just talk to it. Tell it you are taking a camera home and it
+logs the loan; ask where the stopwatch is and it tells you; mention that you
+bought a new lens and it adds the lens to the inventory. If you get something
+wrong, you say so in plain English and it fixes it. There is nothing to learn.</p>
+
+<h2>Five chores, five agents</h2>
+
+<p>Atlas is one agent, but the recipe behind it — a Slack channel, a private
+language model, and tools whose every action is recorded in git — is general. The
+same approach fits every chore on the list:</p>
+
+<ul>
+<li><strong>Inventory (Atlas).</strong> Running now: borrow, return, locate, and add equipment, all by talking to it.</li>
+<li><strong>Papers and journal club (a "lab-brain" agent).</strong> I have designed this one. Each presenter uploads their paper and their slides; the agent ingests both into a lab-wide knowledge base we can actually search — "what did we read about diffusion models last term?" It can also play lab manager: coordinate the presentation order and let people request leave in Slack when they cannot make their turn. We would no longer need a human to own the rotation.</li>
+<li><strong>Lab meetings (a scheduler).</strong> Proposes times, sends reminders, tracks attendance, and reshuffles automatically when someone cannot make it.</li>
+<li><strong>The website (a steward).</strong> "Add my new paper," "update my bio" — the agent edits the site and the change is versioned, so the page never drifts out of date.</li>
+<li><strong>Servers (an ops agent).</strong> This one has a head start: our inventory already tracks the lab's machines. "Which GPU is free on Machine 41? What is the IP for the NAS?" — answered in plain English instead of a group-chat scavenger hunt.</li>
+</ul>
+
+<p>Only the first exists today. The rest are where I would like us to go.</p>
+
+<h2>It is all one pattern</h2>
+
+<p>The important thing is that these are not five separate projects. They are five
+instances of a single pattern: a person talks to an agent in Slack, the agent
+uses tools to do the work, and every change lands in a git-audited record. The
+hard part — the private model server, the Slack integration, the audit
+convention — is built once. Each new agent is then mostly a matter of new tools,
+not new plumbing, so the cost of the <em>next</em> agent keeps falling. That is
+what makes "agent-native" a direction we can actually walk, not a slogan.</p>
+
+<h2>Why I think it is worth it</h2>
+
+<p>A few reasons this feels right for us, beyond convenience. It is
+<strong>private by design</strong> — a self-hosted model means our data stays on
+our own hardware. It is <strong>safe</strong> — git history is the source of
+truth, and mistakes revert in one command. It is <strong>nearly free to
+maintain</strong> — the upkeep that used to need a dedicated person is absorbed by
+the agents. And it is <strong>good for us as researchers</strong>: building and
+living with agents is hands-on experience with exactly where the field is heading.
+The lab gets to practice the future, not just read about it.</p>
+
+<h2>Where this goes</h2>
+
+<p>Atlas may be the lab's first AI agent. With your support, I do not think it
+will be the last.</p>
+
+<blockquote>Our agents and humans will grow together — the more we use them, the smarter they get.</blockquote>
+
+<p>I would genuinely love your thoughts: whether the direction makes sense, which
+chore you would most like to see disappear next, and what you would want an agent
+to do for you. This is the start of a conversation, not a finished plan.</p>
+
+<div class="foot">
+Yubo Huang &middot; Vision &amp; Learning Lab &middot; June 2026
+</div>
+
+</body>
+</html>
