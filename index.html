@@ -37,11 +37,10 @@ blockquote{margin:32px 0;padding:4px 0 4px 22px;border-left:3px solid var(--acce
 
 <hr>
 
-<p>Every research lab carries a steady load of operational work: keeping the
-website current, scheduling meetings, organizing journal-club papers, tracking
-equipment, remembering which server is which. It is necessary work, and someone
-always does it — but it is repetitive, it never quite ends, and it tends to pull
-time and attention <em>away from research itself</em>.</p>
+<p>Every research lab carries a steady load of operational work: the small,
+recurring tasks that keep a lab running smoothly. It is necessary work, and
+someone always does it — but it is repetitive, it never quite ends, and it tends
+to pull time and attention <em>away from research itself</em>.</p>
 
 <p>I would like to propose a direction for easing it: making our lab
 <strong>agent-native</strong> — gradually handing this routine work to AI agents
@@ -66,16 +65,15 @@ and that small overhead quietly adds up across the lab.</p>
 
 <h2>2 &nbsp; An implemented starting point: the Lab Inventory Agent</h2>
 
-<p>Rather than only describe the idea, I built a first version of it, and it is
-running today. It is called <strong>Atlas</strong>, and it looks after our
-equipment inventory.</p>
+<p>Rather than only describe the idea, I built it — and it is already in use. It
+is called <strong>Atlas</strong>, and it looks after our equipment inventory.</p>
 
 <p>Atlas is a Slack agent powered by a self-hosted language model — Qwen3-14B,
 running locally on Machine 41 — so the information we give it
 <strong>stays within the lab</strong>. Every change it makes is saved as a single
 git commit, which means there is a complete history to review and
-<em>any mistake can be undone in one step</em>. The fragile spreadsheet, where a
-careless edit could quietly erase something, is no longer the system of record.</p>
+<em>any mistake can be undone in one step</em>. The fragile spreadsheet is no
+longer the system of record.</p>
 
 <p>In practice, you simply talk to it. You can tell it
 <em>you are taking a camera home</em> and it records the loan; ask
@@ -93,9 +91,9 @@ keeping the website up to date; answering everyday questions about our servers.
 These are <strong>examples rather than a fixed plan</strong> — the list could be
 shorter or longer, and it will grow as we learn what is genuinely useful.</p>
 
-<p>One reason this feels practical rather than aspirational: most of the hard
-parts — running a private model, connecting it to Slack, keeping an auditable
-history — are <strong>built once and then shared</strong>.</p>
+<p>One reason this feels practical rather than aspirational: the infrastructure
+behind Atlas is <strong>built once and then shared</strong> by every agent that
+follows.</p>
 
 <h2>4 &nbsp; Maintenance, and growing together</h2>
 
@@ -106,10 +104,10 @@ remains is light enough for anyone to handle — the maintenance burden moves
 toward <strong>near-zero</strong>, and it no longer rests on one set of
 shoulders.</p>
 
-<p>There is a second effect that I find even more compelling.
-<em>A spreadsheet is exactly as useful on day 500 as on day 1.</em> An agent that
-records everything it does, and everything we tell it, keeps improving: the more
-we use it, the more it knows and the more it can help.</p>
+<p>There is a second effect I find even more compelling.
+<em>A spreadsheet is exactly as useful on day 500 as on day 1.</em> An agent is
+different: it remembers every change and everything we tell it, so the lab's
+shared knowledge accumulates over time instead of slipping away.</p>
 
 <blockquote>Our agents and humans grow together — the more we use them, the more useful they become.</blockquote>
 
