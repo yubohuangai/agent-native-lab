@@ -1,0 +1,14 @@
+# GitLab Pages for the static blog (single self-contained index.html).
+# Served at https://huangyubo.gitlab.io/agent-native-lab/ once the project's
+# Pages "unique domain" setting is turned off (project pages under the namespace).
+pages:
+  stage: deploy
+  image: alpine:latest
+  script:
+    - mkdir -p public
+    - cp index.html public/index.html
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
